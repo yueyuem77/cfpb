@@ -12,7 +12,7 @@ cfpb_data = cfpb_data.drop(cfpb_data.index[0])
 cfpb_data.reset_index(drop=True, inplace=True)
 
 # Display the first few rows with the new column names
-print(cfpb_data.head())
+print(cfpb_data.columns)
 
 #drop the row/entry with all missing values
 cfpb_data.dropna(how='all', inplace=True)
@@ -23,4 +23,6 @@ duplicate_rows = cfpb_data.duplicated().sum()
 # Check for missing values in the dataset
 missing_values = cfpb_data.isnull().sum()
 cfpb_data_head = cfpb_data.head()
-print(cfpb_data_head, duplicate_rows, missing_values.head(10))
+#print(cfpb_data_head, duplicate_rows, missing_values.head(10))
+
+cfpb_data.to_excel('modified_cfpb_1.xlsx', index=False)
